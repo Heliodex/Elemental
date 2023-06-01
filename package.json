@@ -27,6 +27,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"internal-ip": "^7.0.0"
+		"internal-ip": "^7.0.0",
+		"sass": "^1.62.1"
 	}
 }
