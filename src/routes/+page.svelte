@@ -1,7 +1,36 @@
+<script lang="ts">
+	const elements = [
+		["Fire", "ffa500"],
+		["Earth", "deb887"],
+		["Water", "508dff"],
+		["Air", "e7e7e7"],
+	]
+
+	let colCount = 3
+	let columns: (typeof elements)[] = []
+
+	for (let i = 0; i < colCount; i++)
+		columns.push(elements.filter((_, j) => j % colCount == i))
+</script>
+
 <div class="all">
 	<section class="itemsection">
-		<p id="itemsheader">Your Elements (number here)</p>
-		<div class="items">testing</div>
+		<p id="itemsheader">
+			Your Elements ({elements.length}/{elements.length})
+		</p>
+		<div class="items">
+			{#each columns as column}
+				<div class="column">
+					{#each column as element}
+						<button
+							class="element"
+							style="background: #{element[1]}">
+							{element[0]}
+						</button>
+					{/each}
+				</div>
+			{/each}
+		</div>
 	</section>
 
 	<section class="combinesection">
@@ -35,12 +64,10 @@
 
 		justify-content: flex-end
 		flex-direction: column
-		height: 100%
+		height: 99%
 
 	section
-		flex: 1 1 1
 		padding-bottom: 0.7rem
-
 		> div
 			border-radius: 0.7rem
 			background: #515151
@@ -60,7 +87,6 @@
 
 	.combinesection
 		display: flex
-		
 		button
 			width: 20%
 			border-radius: 0 0.7rem 0.7rem 0 
@@ -70,14 +96,34 @@
 			background: #5050aa
 			border: none
 
-	.itemsection, .items
+	.column
 		display: flex
 		flex-direction: column
-		height: 100%
+		width: 100%
+	
+	.items
+		overflow-y: auto
+	.itemsection
+		flex-direction: column
+
+	.element
+		border-radius: 0.7rem
+		padding: 0.4rem
+		margin: 0.2rem
+		color: black
+		text-align: center
+		font-weight: bold
+		border: none
+		word-wrap: break-word
+
+	.itemsection, .items
+		display: flex
 		border-radius: 0 0 0.7rem 0.7rem
+		overflow-y: auto
+		height: 100%
 
 	input
-		width: 97%
+		width: 96%
 		background: none
 		border: none
 		color: white
