@@ -1,16 +1,26 @@
 <script lang="ts">
+	import { fade } from "svelte/transition"
+
 	const elements = [
 		["Fire", "ffa500"],
 		["Earth", "deb887"],
 		["Water", "508dff"],
 		["Air", "e7e7e7"],
+		["Steam", "c8d2ff"],
+		["Lava", "ff5800"],
+		["Mud", "865c1f"],
+		["Mist", "a1a2d8"],
+		["Stone", "913f0c"],
+		["Obsidian", "0b0b0b"],
 	]
 
-	let colCount = 3
+	const colCount = 3
 	let columns: (typeof elements)[] = []
 
 	for (let i = 0; i < colCount; i++)
 		columns.push(elements.filter((_, j) => j % colCount == i))
+
+	let combined: typeof elements = []
 </script>
 
 <div class="all">
@@ -24,7 +34,12 @@
 					{#each column as element}
 						<button
 							class="element"
-							style="background: #{element[1]}">
+							style="background: #{element[1]}"
+							on:click={() => {
+								if (combined.length > 3) return
+								combined = [...combined, element]
+								console.log("combined", combined)
+							}}>
 							{element[0]}
 						</button>
 					{/each}
@@ -34,12 +49,29 @@
 	</section>
 
 	<section class="combinesection">
-		<div class="combine">
-			<p>
-				Tap an element from "Your Elements" to add into combine section
-			</p>
-		</div>
-		<button>Combine</button>
+		<span class="combine">
+			{#if combined.length == 0}
+				<p>
+					Tap an element from "Your Elements" to add into combine
+					section
+				</p>
+			{/if}
+			{#each combined as element, num}
+				<div in:fade>
+					<button
+						class="combineelement"
+						style="background: #{element[1]}"
+						on:click={() => {
+							combined.splice(num, 1)
+							combined = [...combined]
+							console.log("removed", combined)
+						}}>
+						{element[0]}
+					</button>
+				</div>
+			{/each}
+		</span>
+		<button id="combinebutton">Combine</button>
 	</section>
 
 	<section>
@@ -68,12 +100,14 @@
 
 	section
 		padding-bottom: 0.7rem
-		> div
+		> div, span
 			border-radius: 0.7rem
 			background: #515151
 			padding: 0.4rem
 
 	.combine
+		display: flex
+		flex-direction: column
 		border-radius: 0.7rem 0 0 0.7rem
 		p
 			margin: 0
@@ -87,7 +121,7 @@
 
 	.combinesection
 		display: flex
-		button
+		#combinebutton
 			width: 20%
 			border-radius: 0 0.7rem 0.7rem 0 
 			font-size: 1.1rem
@@ -106,7 +140,7 @@
 	.itemsection
 		flex-direction: column
 
-	.element
+	.element, .combineelement
 		border-radius: 0.7rem
 		padding: 0.4rem
 		margin: 0.2rem
