@@ -3,11 +3,11 @@
 	import "../global.sass"
 
 	const nav = [
-		["/leaderboard", "🥇"],
-		["/log", "📃"],
-		["/", "🏠"],
-		["/vote", "⬆️"],
-		["/settings", "⚙️"],
+		["/leaderboard", "₂1₃"],
+		["/log", "☰"],
+		["/", "⌂"],
+		["/vote", "˄˅"],
+		["/settings", "⚙"],
 	]
 </script>
 
@@ -43,8 +43,9 @@
 			text-decoration: none
 			transition: filter 0.2s
 			&:hover
-				filter: brightness(0.7)
+				filter: brightness(2)
 
 		.current
+			color: #5050aa
 			border-bottom: 2px solid #5050aa
 </style>

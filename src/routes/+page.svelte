@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { fade } from "svelte/transition"
 
-	const elements = [
-		["Fire", "ffa500"],
-		["Earth", "deb887"],
-		["Water", "508dff"],
-		["Air", "e7e7e7"],
-		["Steam", "c8d2ff"],
-		["Lava", "ff5800"],
-		["Mud", "865c1f"],
-		["Mist", "a1a2d8"],
-		["Stone", "913f0c"],
-		["Obsidian", "0b0b0b"],
+	const elements: [string, [number, number, number]][] = [
+		["Fire", [251, 163, 18]],
+		["Earth", [220, 183, 136]],
+		["Water", [90, 142, 254]],
+		["Air", [231, 231, 231]],
+		["Steam", [202, 210, 255]],
+		["Lava", [249, 83, 13]],
+		["Mud", [132, 91, 33]],
+		["Mist", [162, 162, 216]],
+		["Stone", [142, 61, 15]],
+		["Obsidian", [11, 11, 11]],
 	]
 
 	const colCount = 3
@@ -34,13 +34,22 @@
 					{#each column as element}
 						<button
 							class="element"
-							style="background: #{element[1]}"
+							style="background: rgb({element[1]})"
 							on:click={() => {
 								if (combined.length > 3) return
 								combined = [...combined, element]
 								console.log("combined", combined)
 							}}>
-							{element[0]}
+							<span
+								style="color: {(element[1][0] +
+									element[1][1] +
+									element[1][2]) /
+									3 >
+								127
+									? 'black'
+									: 'white'}">
+								{element[0]}
+							</span>
 						</button>
 					{/each}
 				</div>
@@ -60,13 +69,22 @@
 				<div in:fade>
 					<button
 						class="combineelement"
-						style="background: #{element[1]}"
+						style="background: rgb({element[1]})"
 						on:click={() => {
 							combined.splice(num, 1)
 							combined = [...combined]
 							console.log("removed", combined)
 						}}>
-						{element[0]}
+							<span
+								style="color: {(element[1][0] +
+									element[1][1] +
+									element[1][2]) /
+									3 >
+								127
+									? 'black'
+									: 'white'}">
+							{element[0]}
+						</span>
 					</button>
 				</div>
 			{/each}
@@ -76,7 +94,7 @@
 
 	<section>
 		<div class="search">
-			<input type="text" placeholder="Search" />
+			🔍 <input type="text" placeholder="Search" />
 		</div>
 	</section>
 </div>
@@ -89,6 +107,7 @@
 		margin: 0
 		color: #c1c1c1
 		border-radius: 0.7rem 0.7rem 0 0
+		font-weight: 600
 
 	.all
 		padding-top: 0.3rem
@@ -107,6 +126,7 @@
 
 	.combine
 		display: flex
+		width: 100%
 		flex-direction: column
 		border-radius: 0.7rem 0 0 0.7rem
 		p
@@ -121,8 +141,8 @@
 
 	.combinesection
 		display: flex
+		width: 100%
 		#combinebutton
-			width: 20%
 			border-radius: 0 0.7rem 0.7rem 0 
 			font-size: 1.1rem
 			color: white
@@ -150,6 +170,12 @@
 		border: none
 		word-wrap: break-word
 
+		span
+			background-color: #0000
+
+	.combineelement
+		width: 100%
+
 	.itemsection, .items
 		display: flex
 		border-radius: 0 0 0.7rem 0.7rem
@@ -157,7 +183,7 @@
 		height: 100%
 
 	input
-		width: 96%
+		width: 90%
 		background: none
 		border: none
 		color: white

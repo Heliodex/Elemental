@@ -68,20 +68,20 @@
 
 <style lang="sass">
 	#leaderboardheader
+		display: flex
 		text-align: center
 		background: #303030
 		padding: 0.25rem 0
 		margin: 0
 		color: #c1c1c1
 		border-radius: 0.7rem 0.7rem 0 0
-
-		display: flex
+		font-weight: 600
 
 		span
 			flex: 1
 
 		.elements
-			margin-left: 60%
+			margin-left: 56%
 			padding-right: 0.5rem
 
 	.all
@@ -122,9 +122,9 @@
 		background: #cd7f32
 
 	.rank
-		width: 3rem
-		padding-left: 0.5rem
+		width: 2.5rem
+		padding-left: 1.5rem
 	.numElements
 		text-align: right
-		padding-right: 0.5rem
+		padding-right: 1rem
 </style>

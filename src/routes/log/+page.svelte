@@ -23,7 +23,7 @@
 
 				{#if item[2]}
 					<span class="currency">
-						+{item[2]}💵
+						+{item[2]} 💵
 					</span>
 				{/if}
 			</div>
@@ -39,6 +39,7 @@
 		color: #c1c1c1
 		border-radius: 0.7rem 0.7rem 0 0
 		padding-left: 0.5rem
+		font-weight: 600
 
 	.headertext
 		padding-top: 0.25rem
@@ -69,10 +70,9 @@
 		overflow-y: auto
 
 	.currency
-		padding: 0.2rem 0.5rem
+		padding: 0.2rem
 		margin-left: auto
 		background: #b29700
 		color: white
 		border-radius: 0 0.7rem 0 0
-
 </style>
