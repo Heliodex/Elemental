@@ -33,33 +33,37 @@
 	<section class="itemsection">
 		<div class="items">
 			{#each votes as vote}
-				<div class="vote" style="background: rgb({vote[1]})">
-					<p
-						class="voteheader"
-						style="color: {(vote[1][0] + vote[1][1] + vote[1][2]) /
-							3 >
-						127
-							? 'black'
-							: 'white'}">
-						{vote[0]}
-					</p>
-					<span class="elements">
-						{#each vote[2] as element}
-							<span
-								class="element"
-								style="background: rgb({element[1]})">
+				{@const colour =
+					(vote[1][0] + vote[1][1] + vote[1][2]) / 3 > 127
+						? "black"
+						: "white"}
+				<div class="votecontainer">
+					<div class="vote" style="background: rgb({vote[1]})">
+						<p class="voteheader" style="color: {colour}">
+							{vote[0]}
+						</p>
+						<span class="elements">
+							{#each vote[2] as element}
 								<span
-									style="color: {(element[1][0] +
-										element[1][1] +
-										element[1][2]) /
-										3 >
-									127
-										? 'black'
-										: 'white'}">
-									{element[0]}
+									class="element"
+									style="background: rgb({element[1]})">
+									<small
+										style="color: {(element[1][0] +
+											element[1][1] +
+											element[1][2]) /
+											3 >
+										127
+											? 'black'
+											: 'white'}">
+										{element[0]}
+									</small>
 								</span>
-							</span>
-						{/each}
+							{/each}
+						</span>
+					</div>
+					<span class="buttons">
+						<button class="upvote">▲</button>
+						<button class="downvote">▼</button>
 					</span>
 				</div>
 			{/each}
@@ -87,12 +91,14 @@
 			padding: 0.4rem
 
 	.vote
-		margin: 0.2rem
-		border-radius: 0.7rem
-		padding: 0.4rem
+		padding: 0.3rem
+		width: 100%
+		border-radius: 0.7rem 0 0 0.7rem
 		
 	.elements
-		display: flex
+		display: grid
+		grid-template-columns: 1fr 1fr
+		grid-gap: 0 1.5rem
 
 	.voteheader
 		font-weight: bold
@@ -100,18 +106,42 @@
 		margin: 0
 
 	.element
-		width: 50%
 		border-radius: 0.7rem
-		padding: 0.4rem
+		padding: 0.2rem
 		margin: 0.2rem
-		color: black
 		text-align: center
-		font-weight: bold
-		border: none
 		word-wrap: break-word
 
-		span
-			background-color: #0000
+	.votecontainer
+		padding-bottom: 0.5rem
+		display: flex
+	.buttons
+		width: 2rem
+		button
+			width: 100%
+			height: 50%
+		
+	.upvote
+		border-radius: 0 0.7rem 0 0
+		border: none
+		background: #70aa70
+		color: white
+		padding: 0.2rem
+		margin: 0
+		transition: background 0.2s
+		&:hover
+			background: #39a839
+	
+	.downvote
+		border-radius: 0 0 0.7rem 0
+		border: none
+		background: #aa7070
+		color: white
+		padding: 0.2rem
+		margin: 0
+		transition: background 0.2s
+		&:hover
+			background: #a83939
 
 	.itemsection, .items
 		height: 99%
