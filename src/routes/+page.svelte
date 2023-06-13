@@ -37,8 +37,8 @@
 							style="background: rgb({element[1]})"
 							on:click={() => {
 								if (combined.length > 3) return
-								combined = [...combined, element]
-								console.log("combined", combined)
+								combined.push(element)
+								combined = combined
 							}}>
 							<span
 								style="color: {(element[1][0] +
@@ -72,8 +72,7 @@
 						style="background: rgb({element[1]})"
 						on:click={() => {
 							combined.splice(num, 1)
-							combined = [...combined]
-							console.log("removed", combined)
+							combined = combined
 						}}>
 							<span
 								style="color: {(element[1][0] +

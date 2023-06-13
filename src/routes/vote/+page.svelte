@@ -2,7 +2,10 @@
 	const votes: [
 		string,
 		[number, number, number],
-		[string, [number, number, number]][]
+		[string, [number, number, number]][],
+		string,
+		number,
+		number
 	][] = [
 		[
 			"Dew",
@@ -11,6 +14,9 @@
 				["Water", [90, 142, 254]],
 				["Air", [231, 231, 231]],
 			],
+			"Kylebrown10 (1 day ago)",
+			2,
+			0,
 		],
 		[
 			"Gravel",
@@ -19,6 +25,9 @@
 				["Earth", [220, 183, 136]],
 				["Stone", [142, 61, 15]],
 			],
+			"Heliodex (1 day ago)",
+			1,
+			2,
 		],
 	]
 </script>
@@ -33,13 +42,14 @@
 	<section class="itemsection">
 		<div class="items">
 			{#each votes as vote}
-				{@const colour =
+				{@const style = `color: ${
 					(vote[1][0] + vote[1][1] + vote[1][2]) / 3 > 127
 						? "black"
-						: "white"}
+						: "white"
+				}`}
 				<div class="votecontainer">
 					<div class="vote" style="background: rgb({vote[1]})">
-						<p class="voteheader" style="color: {colour}">
+						<p class="voteheader" {style}>
 							{vote[0]}
 						</p>
 						<span class="elements">
@@ -60,6 +70,18 @@
 								</span>
 							{/each}
 						</span>
+						<small class="votecreator" {style}>
+							{vote[3]}
+							<strong>
+								{vote[4]}/5 ⬆⬇
+								<button
+									{style}
+									on:click={() =>
+										console.log("open comments")}>
+									{vote[5]}💬
+								</button>
+							</strong>
+						</small>
 					</div>
 					<span class="buttons">
 						<button class="upvote">▲</button>
@@ -120,6 +142,23 @@
 		button
 			width: 100%
 			height: 50%
+
+	.votecreator
+		display: flex
+		font-size: 0.75rem
+		justify-content: space-between
+		align-items: flex-end // align text to bottom
+
+		strong
+			font-size: 0.9rem
+
+		button
+			margin-left: 0.7rem
+			font-weight: bold
+			background: none
+			border: none
+			padding: 0
+			
 		
 	.upvote
 		border-radius: 0 0.7rem 0 0

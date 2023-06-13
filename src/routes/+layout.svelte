@@ -25,9 +25,7 @@
 	<nav>
 		{#each nav as item}
 			<a
-				on:click={() => {
-					previousPageNumber = pageNumber
-				}}
+				on:click={() => (previousPageNumber = pageNumber)}
 				href={item[0]}
 				class:current={data.currentPath == item[0]}>
 				{item[1]}
@@ -42,7 +40,7 @@
 			in:fly={{
 				// Change direction of fly based previous page and current page
 				x:
-					pageNumber < previousPageNumber
+					pageNumber > previousPageNumber
 						? window.innerWidth
 						: -window.innerWidth,
 				duration: 500,
@@ -51,7 +49,7 @@
 			}}
 			out:fly={{
 				x:
-					pageNumber >= previousPageNumber
+					pageNumber < previousPageNumber
 						? window.innerWidth
 						: -window.innerWidth,
 				duration: 500,
