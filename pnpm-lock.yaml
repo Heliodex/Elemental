@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@trpc/client':
+    specifier: ^10.31.0
+    version: 10.31.0(@trpc/server@10.31.0)
   internal-ip:
     specifier: ^8.0.0
     version: 8.0.0
@@ -468,6 +471,18 @@ packages:
       '@tauri-apps/cli-win32-ia32-msvc': 2.0.0-alpha.9
       '@tauri-apps/cli-win32-x64-msvc': 2.0.0-alpha.9
     dev: true
+
+  /@trpc/client@10.31.0(@trpc/server@10.31.0):
+    resolution: {integrity: sha512-VCqbJEvFJb8C4hQFw7AD+dkQTjgEdV/QAzO4D+/cX5e93u5NpfNXI+PKS0QFXwG/zqgwQwVV6OkYc/D/MFwA6g==}
+    peerDependencies:
+      '@trpc/server': 10.31.0
+    dependencies:
+      '@trpc/server': 10.31.0
+    dev: false
+
+  /@trpc/server@10.31.0:
+    resolution: {integrity: sha512-9EnRTSDE9nF11LZsvSOqNKqkRYzHqFX4ch5AJ6VIu8uta2vxVTN4FxxsNRSOluTzVYZDeaCISbwmOJ5iihCCIg==}
+    dev: false
 
   /@types/cookie@0.5.1:
     resolution: {integrity: sha512-COUnqfB2+ckwXXSFInsFdOAWQzCCx+a5hq2ruyj+Vjund94RJQd4LG2u9hnvJrTgunKAaax7ancBYlDrNYxA0g==}
