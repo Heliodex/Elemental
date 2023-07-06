@@ -8,11 +8,12 @@ const client = createClient()
 
 const appRouter = router({
 	userList: publicProcedure.query(async () => {
-		// Retrieve users from a datasource, this is an imaginary database
+		// Retrieve users from database
 		const users = await e
 			.select(e.User, () => ({
 				id: true,
 				name: true,
+				currency: true,
 			}))
 			.run(client)
 
@@ -20,14 +21,14 @@ const appRouter = router({
 		return users
 	}),
 
-	userById: publicProcedure.input(z.string()).query(async opts => {
-		const { input } = opts
+	userById: publicProcedure.input(z.string()).query(async ({ input }) => {
 		// Retrieve the user with the given ID
 		const user = await e
-			.select(e.User, user => ({
+			.select(e.User, u => ({
 				id: true,
 				name: true,
-				filter_single: e.op(user.id, "=", e.uuid(input)),
+				currency: true,
+				filter_single: e.op(u.id, "=", e.uuid(input)),
 			}))
 			.run(client)
 
@@ -37,8 +38,7 @@ const appRouter = router({
 
 	userCreate: publicProcedure
 		.input(z.object({ name: z.string() }))
-		.mutation(async opts => {
-			const { input } = opts
+		.mutation(async ({ input }) => {
 			// Create a new user in the database
 			const user = await e
 				.insert(e.User, {

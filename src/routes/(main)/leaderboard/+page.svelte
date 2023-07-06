@@ -1,40 +1,5 @@
 <script lang="ts">
-	const users: [string, number][] = [
-		["LarsVegas", 8500],
-		["aa", 8000],
-		["ka", 7500],
-		["aq", 7000],
-		["ak", 6500],
-		["ak", 6000],
-		["ax", 5500],
-		["ab", 5000],
-		["aoe", 4500],
-		["ad", 4000],
-		["ahd", 3500],
-		["Heliodex", 3141],
-		["akx", 3000],
-		["agh", 2500],
-		["xxka", 2000],
-		["a x b", 1500],
-		["aeoui", 1000],
-		["VioletStorm", 3079],
-		["ba", 8000],
-		["ba", 7500],
-		["bq", 7000],
-		["bk", 6500],
-		["invisicat", 5166],
-		["bk", 6000],
-		["bx", 5500],
-		["bb", 5000],
-		["boe", 4500],
-		["bd", 4000],
-		["bhd", 3500],
-		["bkx", 3000],
-		["bgh", 2500],
-		["bxka", 2000],
-		["b x b", 1500],
-		["beoui", 1000],
-	]
+	export let data
 </script>
 
 <div class="all">
@@ -47,16 +12,16 @@
 		<div class="leaderboard">
 			<table>
 				<tbody>
-					{#each users.sort((a, b) => b[1] - a[1]) as user, num}
+					{#each data.users.sort((a, b) => b.currency - a.currency) as user, num}
 						<tr>
 							<td class="rank">
 								{num + 1}
 							</td>
 							<td>
-								{user[0]}
+								{user.name}
 							</td>
 							<td class="numElements">
-								{user[1]}
+								5
 							</td>
 						</tr>
 					{/each}
