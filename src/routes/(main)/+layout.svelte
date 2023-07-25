@@ -63,28 +63,28 @@
 	{/key}
 </div>
 
-<style lang="sass">
+<style lang="stylus">
 	main
-		display: flex
-		flex-direction: column
-		height: calc(100vh - 2.3rem)
-		padding: 0 0.3rem 0 0.3rem
-		width: calc(100vw - 0.6rem)
+		display flex
+		flex-direction column
+		height calc(100vh - 2.3rem)
+		padding 0 0.3rem 0 0.3rem
+		width calc(100vw - 0.6rem)
 
 	nav
-		display: flex
-		justify-content: center
+		display flex
+		justify-content center
 		a
-			padding: 0.5rem 0.3rem 0.3rem 0.3rem
-			width: 2rem
-			color: #666
-			text-align: center
-			text-decoration: none
-			transition: filter 0.2s
+			padding 0.5rem 0.3rem 0.3rem 0.3rem
+			width 2rem
+			color #666
+			text-align center
+			text-decoration none
+			transition filter 0.2s
 			&:hover
-				filter: brightness(2)
+				filter brightness(2)
 
 		.current
-			color: #5050aa
-			border-bottom: 2px solid #5050aa
+			color #5050aa
+			border-bottom 2px solid #5050aa
 </style>

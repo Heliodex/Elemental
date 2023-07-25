@@ -93,110 +93,111 @@
 	</section>
 </div>
 
-<style lang="sass">
+<style lang="stylus">
 	.all
-		padding-top: 0.3rem
-		display: flex
+		padding-top 0.3rem
+		display flex
 
-		justify-content: flex-end
-		flex-direction: column
-		height: 99%
+		justify-content flex-end
+		flex-direction column
+		height 99%
 
 	section
-		padding-bottom: 0.7rem
+		padding-bottom 0.7rem
 		> div
-			display: flex
-			flex-direction: column
-			overflow-y: auto
-			border-radius: 0.7rem
-			background: #515151
-			padding: 0.4rem
+			display flex
+			flex-direction column
+			overflow-y auto
+			border-radius 0.7rem
+			background #515151
+			padding 0.4rem
 
 	.vote
-		padding: 0.3rem
-		width: 100%
-		border-radius: 0.7rem 0 0 0.7rem
+		padding 0.3rem
+		width 100%
+		border-radius 0.7rem 0 0 0.7rem
 		
 	.elements
-		display: grid
-		grid-template-columns: 1fr 1fr
-		grid-gap: 0 1.5rem
+		display grid
+		grid-template-columns 1fr 1fr
+		grid-gap 0 1.5rem
 
 	.voteheader
-		font-weight: bold
-		text-align: center
-		margin: 0
+		font-weight bold
+		text-align center
+		margin 0
 
 	.element
-		border-radius: 0.7rem
-		padding: 0.2rem
-		margin: 0.2rem
-		text-align: center
-		word-wrap: break-word
+		border-radius 0.7rem
+		padding 0.2rem
+		margin 0.2rem
+		text-align center
+		word-wrap break-word
 
 	.votecontainer
-		padding-bottom: 0.5rem
-		display: flex
+		padding-bottom 0.5rem
+		display flex
 	.buttons
-		width: 2rem
+		width 2rem
 		button
-			width: 100%
-			height: 50%
+			width 100%
+			height 50%
 
 	.votecreator
-		display: flex
-		font-size: 0.75rem
-		justify-content: space-between
-		align-items: flex-end // align text to bottom
+		display flex
+		font-size 0.75rem
+		justify-content space-between
+		align-items flex-end // align text to bottom
 
 		strong
-			font-size: 0.9rem
+			font-size 0.9rem
 
 		button
-			margin-left: 0.7rem
-			font-weight: bold
-			background: none
-			border: none
-			padding: 0
+			margin-left 0.7rem
+			font-weight bold
+			background none
+			border none
+			padding 0
 			
 		
 	.upvote
-		border-radius: 0 0.7rem 0 0
-		border: none
-		background: #70aa70
-		color: white
-		padding: 0.2rem
-		margin: 0
-		transition: background 0.2s
+		border-radius 0 0.7rem 0 0
+		border none
+		background #70aa70
+		color white
+		padding 0.2rem
+		margin 0
+		transition background 0.2s
 		&:hover
-			background: #39a839
+			background #39a839
 	
 	.downvote
-		border-radius: 0 0 0.7rem 0
-		border: none
-		background: #aa7070
-		color: white
-		padding: 0.2rem
-		margin: 0
-		transition: background 0.2s
+		border-radius 0 0 0.7rem 0
+		border none
+		background #aa7070
+		color white
+		padding 0.2rem
+		margin 0
+		transition background 0.2s
 		&:hover
-			background: #a83939
+			background #a83939
 
-	.itemsection, .items
-		height: 99%
+	.itemsection
+	.items
+		height 99%
 
 	input
-		width: 96%
-		background: none
-		border: none
-		color: white
-		padding-bottom: 0.2rem
-		margin: 0.3rem
+		width 96%
+		background none
+		border none
+		color white
+		padding-bottom 0.2rem
+		margin 0.3rem
 		
-		border-bottom: 1px solid #a6a6a6
-		transition: border-bottom 0.2s
+		border-bottom 1px solid #a6a6a6
+		transition border-bottom 0.2s
 
 		&:focus
-			outline: none
-			border-bottom: 1px solid #d81b60
+			outline none
+			border-bottom 1px solid #d81b60
 </style>

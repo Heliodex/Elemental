@@ -32,47 +32,48 @@
 	{/each}
 </div>
 
-<style lang="sass">
+<style lang="stylus">
 	#logheader
-		display: flex
-		background: #303030
-		color: #c1c1c1
-		border-radius: 0.7rem 0.7rem 0 0
-		padding-left: 0.5rem
-		font-weight: 600
+		display flex
+		background #303030
+		color #c1c1c1
+		border-radius 0.7rem 0.7rem 0 0
+		padding-left 0.5rem
+		font-weight 600
 
 	.headertext
-		padding-top: 0.25rem
+		padding-top 0.25rem
 
 	.all
-		overflow-y: auto
-		height: 100%
+		overflow-y auto
+		height 100%
 
-		padding-top: 0.3rem
+		padding-top 0.3rem
 
 	section
-		padding-bottom: 0.4rem
+		padding-bottom 0.4rem
 
 	.log
-		border-radius: 0.7rem
-		background: #515151
-		padding: 0.4rem
-		margin: 0
-		font-size: 0.8rem
-		color: #bdbdbd
+		border-radius 0.7rem
+		background #515151
+		padding 0.4rem
+		margin 0
+		font-size 0.8rem
+		color #bdbdbd
 	
 	.logitem
-		flex-direction: column
+		flex-direction column
 
-	.logitem, .log
-		display: flex
-		border-radius: 0 0 0.7rem 0.7rem
-		overflow-y: auto
+	.logitem
+	.log
+		display flex
+		border-radius 0 0 0.7rem 0.7rem
+		overflow-y auto
 
 	.currency
-		padding: 0.2rem
-		margin-left: auto
-		background: #b29700
-		color: white
-		border-radius: 0 0.7rem 0 0
+		padding 0.2rem
+		margin-left auto
+		background #b29700
+		color white
+		border-radius 0 0.7rem 0 0
 </style>

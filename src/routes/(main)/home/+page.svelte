@@ -98,101 +98,104 @@
 	</section>
 </div>
 
-<style lang="sass">
+<style lang="stylus">
 	#itemsheader
-		text-align: center
-		background: #303030
-		padding: 0.25rem 0
-		margin: 0
-		color: #c1c1c1
-		border-radius: 0.7rem 0.7rem 0 0
-		font-weight: 600
+		text-align center
+		background #303030
+		padding 0.25rem 0
+		margin 0
+		color #c1c1c1
+		border-radius 0.7rem 0.7rem 0 0
+		font-weight 600
 
 	.all
-		padding-top: 0.3rem
-		display: flex
+		padding-top 0.3rem
+		display flex
 
-		justify-content: flex-end
-		flex-direction: column
-		height: 99%
+		justify-content flex-end
+		flex-direction column
+		height 99%
 
 	section
-		padding-bottom: 0.7rem
-		> div, span
-			border-radius: 0.7rem
-			background: #515151
-			padding: 0.4rem
+		padding-bottom 0.7rem
+		> div
+		span
+			border-radius 0.7rem
+			background #515151
+			padding 0.4rem
 
 	.combine
-		display: flex
-		width: 100%
-		flex-direction: column
-		border-radius: 0.7rem 0 0 0.7rem
+		display flex
+		width 100%
+		flex-direction column
+		border-radius 0.7rem 0 0 0.7rem
 		p
-			margin: 0
-			border-radius: 0.7rem
-			padding: 0.5rem
-			color: black
-			text-align: center
-			font-weight: bold
+			margin 0
+			border-radius 0.7rem
+			padding 0.5rem
+			color black
+			text-align center
+			font-weight bold
 
-			background: #8c8c8c
+			background #8c8c8c
 
 	.combinesection
-		display: flex
-		width: 100%
+		display flex
+		width 100%
 		#combinebutton
-			border-radius: 0 0.7rem 0.7rem 0 
-			font-size: 1.1rem
-			color: white
-			text-align: center
-			background: #5050aa
-			border: none
+			border-radius 0 0.7rem 0.7rem 0 
+			font-size 1.1rem
+			color white
+			text-align center
+			background #5050aa
+			border none
 
 	.column
-		display: flex
-		flex-direction: column
-		width: 100%
+		display flex
+		flex-direction column
+		width 100%
 	
 	.items
-		overflow-y: auto
+		overflow-y auto
 	.itemsection
-		flex-direction: column
+		flex-direction column
 
-	.element, .combineelement
-		border-radius: 0.7rem
-		padding: 0.4rem
-		margin: 0.2rem
-		color: black
-		text-align: center
-		font-weight: bold
-		border: none
-		word-wrap: break-word
+	.element
+	.combineelement
+		border-radius 0.7rem
+		padding 0.4rem
+		margin 0.2rem
+		color black
+		text-align center
+		font-weight bold
+		border none
+		word-wrap break-word
 
 		span
-			background-color: #0000
+			background-color #0000
 
 	.combineelement
-		width: 100%
+		width 100%
 
-	.itemsection, .items
-		display: flex
-		border-radius: 0 0 0.7rem 0.7rem
-		overflow-y: auto
-		height: 100%
+	.itemsection
+	.items
+		display flex
+		border-radius 0 0 0.7rem 0.7rem
+		overflow-y auto
+		height 100%
 
 	input
-		width: 90%
-		background: none
-		border: none
-		color: white
-		padding-bottom: 0.2rem
-		margin: 0.3rem
+		width 90%
+		background none
+		border none
+		color white
+		padding-bottom 0.2rem
+		margin 0.3rem
 		
-		border-bottom: 1px solid #a6a6a6
-		transition: border-bottom 0.2s
+		border-bottom 1px solid #a6a6a6
+		transition border-bottom 0.2s
 
 		&:focus
-			outline: none
-			border-bottom: 1px solid #d81b60
+			outline none
+			border-bottom 1px solid #d81b60
 </style>
